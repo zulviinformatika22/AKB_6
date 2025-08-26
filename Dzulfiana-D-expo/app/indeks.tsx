@@ -1,51 +1,245 @@
 import React from 'react';
-import { 
-  Globe, 
-  Heart, 
-  Gamepad2, 
-  PlaneTakeoff, 
-  Camera, 
-  Star, 
-  MessageCircle, 
-  Shield, 
-  Sun, 
-  Bell 
-} from 'lucide-react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
-export default function IconScreen() {
-  const icons = [
-    { Icon: Globe, label: 'Globe', color: 'text-blue-500' },
-    { Icon: Heart, label: 'Heart', color: 'text-pink-500' },
-    { Icon: Gamepad2, label: 'Gamepad', color: 'text-green-500' },
-    { Icon: PlaneTakeoff, label: 'Plane', color: 'text-orange-500' },
-    { Icon: Camera, label: 'Camera', color: 'text-purple-500' },
-    { Icon: Star, label: 'Star', color: 'text-yellow-500' },
-    { Icon: MessageCircle, label: 'Message', color: 'text-green-600' },
-    { Icon: Shield, label: 'Shield', color: 'text-red-500' },
-    { Icon: Sun, label: 'Sun', color: 'text-pink-400' },
-    { Icon: Bell, label: 'Bell', color: 'text-cyan-500' }
-  ];
-
+const Tugas8 = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      {/* Greeting Text */}
-      <h1 className="text-4xl font-semibold text-gray-700 mb-8">
-        Halo Dzulviana
-      </h1>
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <View style={styles.iconContainer}>
+          <Text style={styles.mainIcon}>📱</Text>
+          <Text style={styles.sparkles}>✨</Text>
+        </View>
+        
+        <Text style={styles.title}>Tabs Bar Implementation</Text>
+        <Text style={styles.subtitle}>Navigasi dengan Tab Bar</Text>
+      </View>
 
-      {/* Icons Row */}
-      <div className="flex flex-wrap gap-6 justify-center">
-        {icons.map(({ Icon, color, label }, index) => (
-          <div key={index} className="flex flex-col items-center group">
+      <View style={styles.contentContainer}>
+        <View style={styles.flexContainer}>
+          {/* Left Column - What is Tabs Bar */}
+          <View style={styles.leftColumn}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionIcon}>🔧</Text>
+              <Text style={styles.sectionTitle}>Apa itu Tabs Bar?</Text>
+            </View>
             
-              className={`w-10 h-10 ${color} group-hover:scale-125 group-hover:animate-bounce transition-transform duration-300 cursor-pointer`} 
+            <View style={styles.answerBox}>
+              <Text style={styles.answerText}>
+                <Text style={styles.boldText}>Tabs Bar</Text> adalah komponen navigasi yang memungkinkan pengguna 
+                untuk berpindah antar halaman atau section dengan mudah melalui tab yang tersedia di bagian bawah 
+                atau atas layar. Tabs bar sangat umum digunakan dalam aplikasi mobile karena memberikan akses cepat 
+                ke berbagai fitur utama aplikasi. Setiap tab biasanya memiliki icon dan label yang menggambarkan 
+                konten atau fungsi dari halaman tersebut. Dengan tabs bar, pengguna dapat dengan intuitif memahami 
+                struktur aplikasi dan navigasi menjadi lebih user-friendly.
+              </Text>
+            </View>
+          </View>
+
+          {/* Right Column - Implementation Status */}
+          <View style={styles.rightColumn}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionIcon}>✅</Text>
+              <Text style={styles.sectionTitle}>Status Implementasi</Text>
+            </View>
             
-            <span className="text-sm text-gray-600 opacity-0 group-hover:opacity-100 mt-2 transition-opacity duration-300">
-              {label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
+            <View style={styles.answerBox}>
+              <Text style={styles.answerText}>
+                <Text style={styles.boldText}>Tabs Bar telah berhasil diimplementasikan</Text> dan sudah digunakan 
+                pada tampilan utama aplikasi ini. Anda dapat melihat tabs bar yang berfungsi dengan baik di bagian 
+                bawah layar, yang memungkinkan navigasi antar berbagai tugas (Tugas 1, Tugas 2, Tugas 3, dan seterusnya). 
+                Implementasi ini menggunakan React Navigation dengan bottom tabs navigator yang memberikan pengalaman 
+                navigasi yang smooth dan responsif. Setiap tab memiliki icon yang sesuai dengan konten halaman dan 
+                styling yang konsisten dengan desain keseluruhan aplikasi. Tabs bar ini sudah fully functional dan 
+                siap digunakan untuk navigasi dalam aplikasi.
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Implementation Demo Section */}
+        <View style={styles.demoSection}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionIcon}>🎯</Text>
+            <Text style={styles.sectionTitle}>Demo Tabs Bar</Text>
+          </View>
+          
+          <View style={styles.demoContainer}>
+            <Text style={styles.demoText}>
+              Tabs Bar yang sudah diimplementasikan dapat Anda lihat di bagian bawah layar aplikasi ini.
+            </Text>
+            
+            <View style={styles.tabsPreview}>
+              <View style={styles.tabItem}>
+                <Text style={styles.tabIcon}>🏠</Text>
+                <Text style={styles.tabLabel}>Halaman Utama</Text>
+              </View>
+              <View style={styles.tabItem}>
+                <Text style={styles.tabIcon}>👤</Text>
+                <Text style={styles.tabLabel}>Tentang Saya</Text>
+              </View>
+              <View style={styles.tabItem}>
+                <Text style={styles.tabIcon}>📄</Text>
+                <Text style={styles.tabLabel}>Profile</Text>
+              </View>
+              <View style={[styles.tabItem, styles.activeTab]}>
+                <Text style={styles.tabIcon}>📝</Text>
+                <Text style={[styles.tabLabel, styles.activeTabLabel]}>Tugas</Text>
+              </View>
+              <View style={styles.tabItem}>
+                <Text style={styles.tabIcon}>➕</Text>
+                <Text style={styles.tabLabel}>More</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8fafc',
+  },
+  header: {
+    alignItems: 'center',
+    paddingTop: 40,
+    paddingBottom: 20,
+    backgroundColor: '#667eea',
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+  },
+  iconContainer: {
+    position: 'relative',
+    marginBottom: 20,
+  },
+  mainIcon: {
+    fontSize: 60,
+    textAlign: 'center',
+  },
+  sparkles: {
+    position: 'absolute',
+    top: -5,
+    right: -10,
+    fontSize: 20,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 5,
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  contentContainer: {
+    padding: 20,
+  },
+  flexContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 15,
+    marginBottom: 30,
+  },
+  leftColumn: {
+    flex: 1,
+  },
+  rightColumn: {
+    flex: 1,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  sectionIcon: {
+    fontSize: 24,
+    marginRight: 12,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1e293b',
+  },
+  answerBox: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    padding: 20,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    borderLeftWidth: 4,
+    borderLeftColor: '#3b82f6',
+    minHeight: 200,
+  },
+  answerText: {
+    fontSize: 15,
+    color: '#475569',
+    lineHeight: 24,
+    textAlign: 'justify',
+  },
+  boldText: {
+    fontWeight: 'bold',
+    color: '#1e293b',
+  },
+  demoSection: {
+    marginTop: 20,
+  },
+  demoContainer: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    padding: 20,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  demoText: {
+    fontSize: 16,
+    color: '#475569',
+    textAlign: 'center',
+    marginBottom: 20,
+    lineHeight: 22,
+  },
+  tabsPreview: {
+    flexDirection: 'row',
+    backgroundColor: '#f8fafc',
+    borderRadius: 12,
+    padding: 10,
+    justifyContent: 'space-around',
+    borderWidth: 2,
+    borderColor: '#e2e8f0',
+  },
+  tabItem: {
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+  },
+  activeTab: {
+    backgroundColor: '#3b82f6',
+  },
+  tabIcon: {
+    fontSize: 20,
+    marginBottom: 4,
+  },
+  tabLabel: {
+    fontSize: 12,
+    color: '#64748b',
+    fontWeight: '500',
+  },
+  activeTabLabel: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
+
+export default Tugas8;
